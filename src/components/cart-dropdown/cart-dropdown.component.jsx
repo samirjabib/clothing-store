@@ -10,6 +10,7 @@ import './cart-dropdown.styles.scss';
 const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
 
+
   return (
     <div className='cart-dropdown-container'>
       <div className='cart-items'>
