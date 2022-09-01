@@ -1,4 +1,14 @@
-.category-container {
+import styled from 'styled-components'
+
+export const BackgroundImage = styled.div `
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: ${ ({imageUrl}) => `url(${imageUrl})`}
+`
+
+export const DirectoryItemContainer = styled.div `
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
@@ -9,21 +19,17 @@
   margin: 0 7.5px 15px;
   overflow: hidden;
 
+  $(BackgroundImage){
+    transform: scale(1.1);
+    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  }
+
   &:hover {
     cursor: pointer;
-
-    & .background-image {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-    }
 
     & .category-body-container {
       opacity: 0.9;
     }
-  }
-
-  &.large {
-    height: 380px;
   }
 
   &:first-child {
@@ -34,14 +40,9 @@
     margin-left: 7.5px;
   }
 
-  .background-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
+`
 
-  .category-body-container {
+export const Body = styled.div`
     height: 90px;
     padding: 0 25px;
     display: flex;
@@ -64,5 +65,4 @@
       font-weight: lighter;
       font-size: 16px;
     }
-  }
-}
+`
