@@ -36,12 +36,12 @@ const Checkout =  () => {
                     <span>Remove</span>
                 </div>
             </div>
-        {cartItems.map( (cartItem) => {
+            {cartItems.map( (cartItem) => {
                 return(
                     <CheckoutItem key={cartItem.id} cartItem={cartItem}/>
                 )   
             })}
-            <span className='total'> Total: { cartTotal }</span>
+            <span className='total'> Total: ${ cartTotal }</span>
            
         </div>
     )
