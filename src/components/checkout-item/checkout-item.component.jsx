@@ -15,7 +15,6 @@ import { CartContext } from "../../contexts/cart.context";
 const CheckoutItem = ({ cartItem }) => {
 
 
-    console.log(cartItem)
 
     const { name, imageUrl, price, quantity} = cartItem;
 

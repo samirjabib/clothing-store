@@ -10,9 +10,8 @@ const CategoriesPreview  = () => {
 
   const { categoriesMap } = useContext(CategoriesContext);
 
-  console.log( Object.keys(categoriesMap) )
 
-  console.log(categoriesMap)
+
 
   return (
     <Fragment>
