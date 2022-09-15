@@ -28,4 +28,6 @@ export const TextContainer = styled.div`
   object-fit:cover;
   font-size:4rem;
   flex-direction:column;
+  backdrop-filter:blur(4px);
+  font-weight:bold;
 `

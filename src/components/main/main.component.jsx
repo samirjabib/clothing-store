@@ -17,7 +17,7 @@ const Main = () => {
     <MainContainer>
       <video src={Video} autoPlay loop muted/>
       <TextContainer>
-        <h1>Welcome to my Store</h1>
+        <h1>Welcome</h1>
         <Button 
           onClick={goToShop}
           buttonType={ BUTTON_TYPE_CLASSES.inverted }
