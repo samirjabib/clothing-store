@@ -60,14 +60,14 @@ export function* onCheckUserSession() {
     yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION, isUserAunthenticated )
 };
 
-export function* emailSignStart(){
-    yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail)
-}
+export function* onEmailSignInStart() {
+    yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
+  }
 
 export function* userSagas(){
     yield all([
         call(onCheckUserSession), 
         call(onGoogleSignStart), 
-        call(emailSignStart),
+        call(onEmailSignInStart),
     ]);
 };

@@ -7,8 +7,7 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import { ButtonsContainer, SignInContainer } from  './sign-in-form.styles.jsx';
 import { googleSignInStart } from '../../store/user/user.action';
 import { useDispatch } from 'react-redux';
-import { emailSignStart } from '../../store/user/user.saga';
-
+import {  emailSignInStart} from '../../store/user/user.action'
 
 const defaultFormFields = {
   email: '',
@@ -34,7 +33,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      dispatch(emailSignStart(email, password));
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
       console.log('user sign in failed', error);
