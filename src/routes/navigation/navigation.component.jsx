@@ -15,6 +15,7 @@ import './navigation.styles.scss';
 const Navigation = () => {
 
   const currentUser = useSelector( (state) => state.user.currentUser);
+  console.log(currentUser)
   const isCartOpen = useSelector(selectIsCartOpen)
 
   return (
