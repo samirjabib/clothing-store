@@ -5,7 +5,6 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import {
   signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils';
 
 import { ButtonsContainer, SignInContainer } from  './sign-in-form.styles.jsx';
