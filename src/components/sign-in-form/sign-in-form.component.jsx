@@ -3,13 +3,12 @@ import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
-import {
-  signInAuthUserWithEmailAndPassword,
-} from '../../utils/firebase/firebase.utils';
 
 import { ButtonsContainer, SignInContainer } from  './sign-in-form.styles.jsx';
 import { googleSignInStart } from '../../store/user/user.action';
 import { useDispatch } from 'react-redux';
+import { emailSignStart } from '../../store/user/user.saga';
+
 
 const defaultFormFields = {
   email: '',
@@ -35,7 +34,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      await signInAuthUserWithEmailAndPassword(email, password);
+      dispatch(emailSignStart(email, password));
       resetFormFields();
     } catch (error) {
       console.log('user sign in failed', error);
