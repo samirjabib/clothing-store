@@ -1,40 +1,39 @@
 import {all, takeLatest, put, call } from 'redux-saga/effects';
 
 import { USER_ACTION_TYPES } from './user.types'
-import { signInSuccess, signInFailure } from './user.action';
+import { signInSuccess, signInFailed } from './user.action';
 
 import { createUserDocumentFromAuth, getCurrentUser } from '../../utils/firebase/firebase.utils';
 
-export function* getSnapshotFromUserAuth(userAuth, additionalsDetails){
-    try{
-        const userSnapshot = yield call(
-            createUserDocumentFromAuth,
-            userAuth, 
-            additionalsDetails
-        );
-        console.log(userSnapshot);
-        console.log(userSnapshot.data())
-        
-    }catch(error){
-        yield put(signInFailure(error))
 
+
+export function* getSnapshotFromUserAuth(userAuth, additionalDetails){
+    try{
+        const userSnapShot = yield call(createUserDocumentFromAuth, userAuth, additionalDetails);
+        console.log(userSnapShot)
+        console.log(userSnapShot.data())
+    }catch(error){
+        yield put(signInFailed(error))
     }
 }
 
-export function* isUserAuthenticated() {
+
+export function* isUserAunthenticated() {
     try{
         const userAuth = yield call(getCurrentUser);
         if(!userAuth) return;
-    } catch(error){
+        yield call(getSnapshotFromUserAuth, userAuth)
 
+    }catch(error){
+        yield put(signInFailed(error))
     }
 }
 
 export function* onCheckUserSession() {
-    yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION,
-        getSnapshotFromUserAuth)
-}
+    yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION, isUserAunthenticated )
+};
 
-export function* userSagas() {
-    yield all ([call(onCheckUserSession)])
-}
+
+export function* userSagas(){
+    yield([onCheckUserSession])
+};

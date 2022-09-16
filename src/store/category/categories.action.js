@@ -14,6 +14,6 @@ export const fetchCategoriesSuccess = (categoriesArray) =>
     categoriesArray
   );
 
-export const fetchCategoriesFailure = (error) =>
+export const fetchCategoriesFailed = (error) =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
 
