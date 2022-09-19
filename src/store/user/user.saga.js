@@ -5,7 +5,8 @@ import {
     signInSuccess,
     signInFailed,
     signUpSuccess,
-    signUpFailed } 
+    signUpFailed, 
+}
 from './user.action';
 
 import { 
@@ -13,7 +14,8 @@ import {
     getCurrentUser, 
     signInAuthUserWithEmailAndPassword, 
     signInWithGooglePopup,
-    createUserDocumentFromAuth
+    createUserDocumentFromAuth,
+    signOutUser
 } from '../../utils/firebase/firebase.utils';
 
 
@@ -65,6 +67,9 @@ export function* signInWithEmail({ payload: { email, password } }) {
     }
   }
 
+
+
+
 export function* isUserAunthenticated() {
     try{
         const userAuth = yield call(getCurrentUser);
@@ -91,7 +96,10 @@ export function* onCheckUserSession() {
 
 export function* onEmailSignInStart() {
     yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
-  }
+}
+
+
+
 
 export function* userSagas(){
     yield all([
