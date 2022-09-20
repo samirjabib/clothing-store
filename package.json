@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.10.0",
+    "@stripe/stripe-js": "^1.36.0",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
@@ -22,6 +24,7 @@
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.6",
     "sass": "1.49.7",
+    "stripe": "^10.10.0",
     "styled-components": "^5.3.5",
     "web-vitals": "2.1.4"
   },
