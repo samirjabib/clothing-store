@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 import { selectIsCartOpen } from '../../store/cart/cart.selector'
+import { signOutStart} from '../../store/user/user.action'
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
@@ -15,13 +16,13 @@ import './navigation.styles.scss';
 
 const Navigation = () => {
   
-
+  const dispatch = useDispatch();
   const currentUser = useSelector( (state) => state.user.currentUser);
   console.log(currentUser)
   const isCartOpen = useSelector(selectIsCartOpen)
 
 
-  const signOutUser = () => console.log('hice click')  
+  const signOutUser = () => dispatch(signOutStart());
 
   return (
     <Fragment>
