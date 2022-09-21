@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
+    "dotenv": "^16.0.2",
     "firebase": "9.6.6",
     "hoist-non-react-statics": "^3.3.2",
     "i": "^0.3.7",
